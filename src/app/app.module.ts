@@ -20,6 +20,8 @@ import {AgGridDateFormatComponent} from '../components/ag-grid-date-format/ag-gr
 import {ShortDateWithTimePipe} from '../components/ag-grid-date-format/shortDateWithTime.pipe';
 import {PocKendoComponent} from '../components/poc-kendo/poc-kendo.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {GridModule, SharedModule} from '@progress/kendo-angular-grid';
+
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import {MatTabsModule} from '@angular/material/tabs';
     FormsModule,
     MultiSelectModule,
     MatTabsModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    GridModule,
+    SharedModule,
 
   ],
   providers: [],

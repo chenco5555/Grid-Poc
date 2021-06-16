@@ -97,21 +97,21 @@
       filter="numeric"
     >
       <ng-template kendoGridCellTemplate let-dataItem>
-        <kendo-sparkline
-          type="bar"
-          [data]="dataItem.target"
-          [tooltip]="{ visible: false }"
-          [transitions]="true"
-          [seriesDefaults]="{
-                labels: { background: 'none', visible: true, format: '{0}%' }
-              }"
-        >
-<!--          <kendo-chart-area opacity="0" [width]="200"></kendo-chart-area>-->
+<!--        <kendo-sparkline-->
+<!--          type="bar"-->
+<!--          [data]="dataItem.target"-->
+<!--          [tooltip]="{ visible: false }"-->
+<!--          [transitions]="true"-->
+<!--          [seriesDefaults]="{-->
+<!--                labels: { background: 'none', visible: true, format: '{0}%' }-->
+<!--              }"-->
+<!--        >-->
+<!--&lt;!&ndash;          <kendo-chart-area opacity="0" [width]="200"></kendo-chart-area>&ndash;&gt;-->
 <!--          <kendo-chart-value-axis>-->
 <!--            <kendo-chart-value-axis-item [min]="0" [max]="130">-->
 <!--            </kendo-chart-value-axis-item>-->
 <!--          </kendo-chart-value-axis>-->
-        </kendo-sparkline>
+<!--        </kendo-sparkline>-->
       </ng-template>
     </kendo-grid-column>
     <kendo-grid-column
@@ -134,9 +134,9 @@
     </kendo-grid-column>
   </kendo-grid-column-group>
 
-  <kendo-grid-pdf
-    fileName="Employees.pdf"
-    [repeatHeaders]="true"
-  ></kendo-grid-pdf>
-  <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>
+<!--  <kendo-grid-pdf-->
+<!--    fileName="Employees.pdf"-->
+<!--    [repeatHeaders]="true"-->
+<!--  ></kendo-grid-pdf>-->
+<!--  <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>-->
 </kendo-grid>
