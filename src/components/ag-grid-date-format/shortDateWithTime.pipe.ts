@@ -14,6 +14,7 @@ export class ShortDateWithTimePipe extends DatePipe implements PipeTransform {
     super(locale);
   }
 
+  // @ts-ignore
   public transform(date: Date): string {
     if (!date) {
       return "";

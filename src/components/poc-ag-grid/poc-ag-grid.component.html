@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<ag-grid-angular #agGrid
+  [pagination]=true
+  class="ag-theme-alpine"
+  [rowData]="tableData"
+  [rowSelection]="'multiple'"
+  [paginationPageSize]=50
+  (rowSelected)="getSelectedRows()"
+  (cellDoubleClicked)="onCellClicked($event)"
+  (paginationChanged)="onPaginationChanged($event)"
+  (gridReady)="onGridReady($event)"
+  [columnDefs]="columnDefs">
+</ag-grid-angular>
+
+

@@ -1,1 +1,155 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~primeng/resources/primeng.min.css";
+@import "~primeicons/primeicons.css";
+
+
+.p-datatable .p-sortable-column.p-highlight:hover {
+  background: #e9ecef;
+  color: #121032 !important;
+}
+
+
+.p-checkbox-box {
+  border: 1px solid #121032 !important;
+  background: #ffffff;
+  width: 20px;
+  height: 20px;
+  color: #495057;
+  border-radius: 0 !important;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  padding: 3px;
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pi-check:before {
+  display: none !important;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  background: #d25a2b !important;
+}
+
+.p-datatable .p-sortable-column.p-highlight:hover {
+  background: #e9ecef;
+  color: #121032 !important;
+}
+
+
+// table header
+
+.p-datatable .p-datatable-header {
+  padding: 0 !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  font-size: 14px;
+  text-align: left;
+  font-weight: 600;
+  color: #121032 !important;
+  background: #EEF1F5 !important;
+  transition: none !important;
+  min-height: 30px;
+  padding-top: 16px;
+  border: 1px solid #e9ecef;
+}
+
+
+.p-datatable .p-sortable-column.p-highlight {
+  background: #EEF1F5 !important;
+  color: #121032 !important;
+}
+
+.p-datatable .p-sortable-column:focus {
+  box-shadow: none !important;
+  outline: 0 none;
+}
+
+// table style
+
+.pi-table {
+  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 20%);
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: left;
+  border: 1px solid #e9ecef;
+  padding: 10px !important;
+
+  &:first-child, &:last-child {
+    padding-left: 30px !important;
+  }
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  &:first-child, &:last-child {
+    padding-left: 30px;
+  }
+}
+
+
+// selected
+.p-datatable .p-datatable-tbody > tr.p-highlight {
+  background: #ffffff !important;
+  color: #495057;
+}
+
+.p-datatable .p-datatable-tbody > tr.p-highlight {
+  background: #E3F2FD;
+  color: #121032 !important;
+}
+
+.p-selectable-row {
+  background: #ffffff;
+}
+
+
+
+
+// page
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #d25a2b !important;
+}
+
+.p-paginator .p-paginator-first:not(.p-disabled):not(.p-highlight):hover, .p-paginator .p-paginator-prev:not(.p-disabled):not(.p-highlight):hover, .p-paginator .p-paginator-next:not(.p-disabled):not(.p-highlight):hover, .p-paginator .p-paginator-last:not(.p-disabled):not(.p-highlight):hover {
+  background: #e9ecef;
+  border-color: transparent;
+  color: #d25a2b !important;
+}
+
+.p-link:focus, .p-link:active, .p-link:hover {
+  background: #ffffff !important;
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: none !important;
+}
+
+//resize
+
+.action-items {
+  text-align: right !important;
+}
+
+
+////////////////////  POC - AG  grid ////////////////////////////////////////////
+
+
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
+
+ag-grid-angular {
+  width: 100%;
+  height: 800px;
+}
+
+.ag-center-cols-container {
+  width: 100% !important;
+}
+

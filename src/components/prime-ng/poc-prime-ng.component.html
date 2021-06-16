@@ -1,0 +1,95 @@
+<div>
+  <p-table #dt1
+    dataKey="id"
+    class="p-datatable-gridlines"
+    [columns]="tableStructure"
+    [scrollable]="true"
+    [rows]="50"
+    [(first)]="first"
+    scrollHeight="600px"
+    [customSort]="true"
+    [virtualScroll]="true"
+    [virtualRowHeight]="34"
+    [value]="tableData"
+    [paginator]="true"
+    [rows]="rows"
+    [autoLayout]="true"
+    [showCurrentPageReport]="true"
+    [columnResizeMode]="'expand'"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [(first)]="first"
+    [resizableColumns]="false"
+    (sortFunction)="customSort($event)"
+    selectionMode="single">
+
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th *ngIf="hasTableCheckbox"
+          pResizableColumn
+          class="table-checkbox-width">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+
+        <th *ngFor="let col of tableStructure"
+          pResizableColumn
+          [pSortableColumnDisabled]="!col.tableHeader.hasSort"
+          [pSortableColumn]="col.tableHeader.title">
+          {{col.tableHeader.title}}
+          <p-columnFilter type="text" [field]="col.tableHeader.title" display="menu"></p-columnFilter>
+          <p-sortIcon
+            *ngIf="col.tableHeader.hasSort"
+            [field]="col.tableHeader.title"
+            ariaLabel="Activate to sort"
+            ariaLabelDesc="Activate to sort in descending order"
+            ariaLabelAsc="Activate to sort in ascending order">
+          </p-sortIcon>
+        </th>
+
+        <th pResizableColumn
+          class="action-items"
+          *ngIf="hasActionItems"></th>
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body"
+      let-tableRow>
+      <tr [pSelectableRow]="tableData" (dblclick)="onRowSelect(tableRow)">
+
+        <td *ngIf="hasTableCheckbox"
+          class="table-checkbox-width ui-resizable-column">
+          <p-tableCheckbox [value]="tableData"></p-tableCheckbox>
+        </td>
+
+
+        <td *ngFor="let col of tableStructure">
+          <div class="dynamic-column-wrapper ui-resizable-column">
+
+                 <!-- add new component  -->
+            <div *ngIf="col.tableColumnKey.hasStatusColor"
+              class="status-circle"
+              [style.background-color]="convertProjectStatusToColor(tableRow[col.tableColumnKey.columnKey])">
+            </div>
+
+            {{tableRow[col.tableColumnKey.columnKey]}}
+          </div>
+        </td>
+
+        <td *ngIf="hasActionItems"
+          class="action-items ui-resizable-column">
+          <button pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success p-mr-2 button-for-editing"
+            (click)="onRowSelect(tableRow)"></button>
+          <button pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="deleteRow(tableRow)"></button>
+        </td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+</div>

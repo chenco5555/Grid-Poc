@@ -1,0 +1,59 @@
+
+// #d25a2b
+
+.pi-sort-alt:before {
+  content: '\e903 \A \e902';
+}
+
+// selection
+.table-checkbox-width{
+  width: 3rem;
+}
+
+
+
+// action items
+
+.p-button-success {
+  margin-right: 10px;
+}
+
+.p-button.p-button-success, .p-buttonset.p-button-success > .p-button, .p-splitbutton.p-button-success > .p-button {
+  color:#A9A9A9;
+  background: #ffffff;
+  border: none;
+}
+
+.p-button.p-button-warning, .p-buttonset.p-button-warning > .p-button, .p-splitbutton.p-button-warning > .p-button {
+  color: #A9A9A9;
+  background: #ffffff;
+  border: none;
+}
+
+
+
+// responsive
+
+
+
+
+
+// project status
+
+.dynamic-column-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  .status-circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+}
+
+
+
+
+
+
