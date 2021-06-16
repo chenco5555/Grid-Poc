@@ -153,3 +153,26 @@ ag-grid-angular {
   width: 100% !important;
 }
 
+.ag-icon-asc, .ag-icon-desc {
+  color: red !important;
+}
+
+
+/////////////// kendo /////////
+
+.k-grid td.k-state-selected, .k-grid tr > td {
+  background: white;
+}
+
+.k-grid td.k-state-selected, .k-grid tr.k-state-selected > td {
+  background: #e9ecef;
+}
+
+.k-checkbox:checked, .k-checkbox.k-checked {
+  color: #121032 !important;
+}
+
+.k-columnmenu-item.k-state-selected {
+  color: #121032;
+  background-color: #e9ecef;
+}

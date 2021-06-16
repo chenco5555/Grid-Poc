@@ -5,24 +5,12 @@
   [pageSize]="20"
   [pageable]="true"
   [sortable]="true"
-  [groupable]="true"
+  [groupable]="false"
   [reorderable]="true"
   [resizable]="true"
   [height]="810"
   [columnMenu]="{ filter: true }"
 >
-  <ng-template kendoGridToolbarTemplate>
-<!--    <input-->
-<!--      placeholder="Search in all columns..."-->
-<!--      kendoTextBox-->
-<!--      (input)="onFilter($event.target?.value)"-->
-<!--    />-->
-    <kendo-grid-spacer></kendo-grid-spacer>
-    <button kendoGridExcelCommand type="button" icon="file-excel">
-      Export to Excel
-    </button>
-    <button kendoGridPDFCommand icon="file-pdf">Export to PDF</button>
-  </ng-template>
   <kendo-grid-checkbox-column
     [width]="45"
     [headerClass]="{ 'text-center': true }"
@@ -31,13 +19,8 @@
     [columnMenu]="false"
     [showSelectAll]="true"
   ></kendo-grid-checkbox-column>
-  <kendo-grid-column-group title="Employee" [columnMenu]="false">
     <kendo-grid-column field="full_name" title="Contact Name" [width]="220">
       <ng-template kendoGridCellTemplate let-dataItem>
-<!--        <div-->
-<!--          class="customer-photo"-->
-<!--          [ngStyle]="{ 'background-image': photoURL(dataItem) }"-->
-<!--        ></div>-->
         <div class="customer-name">{{ dataItem.full_name }}</div>
       </ng-template>
     </kendo-grid-column>
@@ -50,9 +33,6 @@
       [class]="{ 'text-center': true }"
       [resizable]="false"
     >
-      <ng-template kendoGridCellTemplate let-dataItem>
-<!--        <img class="flag" [src]="flagURL(dataItem)" width="30" />-->
-      </ng-template>
     </kendo-grid-column>
     <kendo-grid-column
       field="is_online"
@@ -75,8 +55,6 @@
         >
       </ng-template>
     </kendo-grid-column>
-  </kendo-grid-column-group>
-  <kendo-grid-column-group title="Performance" [columnMenu]="false">
     <kendo-grid-column
       field="rating"
       title="Rating"
@@ -84,35 +62,13 @@
       [resizable]="false"
       filter="numeric"
     >
-      <ng-template kendoGridCellTemplate let-dataItem>
-<!--        <kendo-rating [value]="dataItem.rating" [max]="5"></kendo-rating>-->
-        467658857
-      </ng-template>
     </kendo-grid-column>
     <kendo-grid-column
       field="target"
       title="Engagement"
       [width]="230"
       [resizable]="false"
-      filter="numeric"
-    >
-      <ng-template kendoGridCellTemplate let-dataItem>
-<!--        <kendo-sparkline-->
-<!--          type="bar"-->
-<!--          [data]="dataItem.target"-->
-<!--          [tooltip]="{ visible: false }"-->
-<!--          [transitions]="true"-->
-<!--          [seriesDefaults]="{-->
-<!--                labels: { background: 'none', visible: true, format: '{0}%' }-->
-<!--              }"-->
-<!--        >-->
-<!--&lt;!&ndash;          <kendo-chart-area opacity="0" [width]="200"></kendo-chart-area>&ndash;&gt;-->
-<!--          <kendo-chart-value-axis>-->
-<!--            <kendo-chart-value-axis-item [min]="0" [max]="130">-->
-<!--            </kendo-chart-value-axis-item>-->
-<!--          </kendo-chart-value-axis>-->
-<!--        </kendo-sparkline>-->
-      </ng-template>
+      filter="numeric">
     </kendo-grid-column>
     <kendo-grid-column
       field="budget"
@@ -126,17 +82,8 @@
               }}</span>
       </ng-template>
     </kendo-grid-column>
-  </kendo-grid-column-group>
-  <kendo-grid-column-group title="Contacts" [columnMenu]="false">
     <kendo-grid-column field="phone" title="Phone" [width]="130">
     </kendo-grid-column>
     <kendo-grid-column field="address" title="Address" [width]="200">
     </kendo-grid-column>
-  </kendo-grid-column-group>
-
-<!--  <kendo-grid-pdf-->
-<!--    fileName="Employees.pdf"-->
-<!--    [repeatHeaders]="true"-->
-<!--  ></kendo-grid-pdf>-->
-<!--  <kendo-grid-excel fileName="Employees.xlsx"></kendo-grid-excel>-->
 </kendo-grid>

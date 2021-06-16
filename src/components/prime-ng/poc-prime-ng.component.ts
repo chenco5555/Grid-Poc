@@ -112,9 +112,9 @@ export class PocPrimeNgComponent implements OnInit {
   constructor(private tableDataService: TableDataService) {}
 
   ngOnInit() {
-    // this.tableDataService.getCustomersLarge().then(data => {
-    //   this.tableData = data;
-    // });
+    this.tableDataService.getCustomersLarge().then(res => {
+      this.tableData = res;
+    });
   }
 
   customSort(event: ISortEvent) {

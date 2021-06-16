@@ -6,62 +6,63 @@
         <mat-tab-group>
           <mat-tab label="AG grid">
             <!--    AG grid-->
-            <div class="table-title">Project Management - AG Grid</div>
-            <div>
+            <div class="table-title">Project Management - AG Grid <span>
               <a href=" https://www.ag-grid.com/example.php"
-                target="_blank">Demo</a>
+                target="_blank">(Demo)</a>
+            </span>
             </div>
-            <p-multiSelect [virtualScroll]="true"
-              [itemSize]="30"
-              [options]="columnOptions"
-              [(ngModel)]="selectedColumn"
-              optionLabel="headerName"
-              (onChange)="onSelectedColumnChange($event)"></p-multiSelect>
+            <div class="table-options">
+              <p-multiSelect [virtualScroll]="true"
+                [itemSize]="30"
+                [options]="columnOptions"
+                [(ngModel)]="selectedColumn"
+                optionLabel="headerName"
+                (onChange)="onSelectedColumnChange($event)"></p-multiSelect>
+            </div>
+
             <poc-ag-grid [columnDefs]="columnDefsForView"></poc-ag-grid>
           </mat-tab>
           <mat-tab label="primeNG">
             <!--    primeNG -->
-            <div class="table-title">Project Management - primeNG</div>
-            <div>
+            <div class="table-title">Project Management - primeNG <span>
               <a href="https://www.primefaces.org/primeng/showcase/#/table"
-                target="_blank">Demo</a>
+                target="_blank">(Demo)</a>
+            </span>
             </div>
-            <p-multiSelect [virtualScroll]="true"
-              [itemSize]="30"
-              [options]="tableStructure"
-              [(ngModel)]="selectedColumnPriem"
-              optionLabel="tableColumnKey.columnKey"
-              (onChange)="onSelectedColumnChangePrimeNg($event)">
-            </p-multiSelect>
+            <div class="table-options">
+              <p-multiSelect [virtualScroll]="true"
+                [itemSize]="30"
+                [options]="tableStructure"
+                [(ngModel)]="selectedColumnPriem"
+                optionLabel="tableColumnKey.columnKey"
+                (onChange)="onSelectedColumnChangePrimeNg($event)"></p-multiSelect>
 
-            <div class="title-buttons">
-              <button pButton
-                pRipple
-                icon="pi pi-pencil"
-                class="p-button-rounded p-button-success p-mr-2 button-for-editing table-checkbox-button"
-                (click)="hasTableCheckbox = !hasTableCheckbox">
-              </button>
+              <div class="title-buttons">
+                <button pButton
+                  pRipple
+                  icon="pi pi-pencil"
+                  class="p-button-rounded p-button-success p-mr-2 button-for-editing table-checkbox-button"
+                  (click)="hasTableCheckbox = !hasTableCheckbox"></button>
+              </div>
             </div>
 
-            <app-prime-ng
-              [hasTableCheckbox]="hasTableCheckbox"
+            <app-prime-ng [hasTableCheckbox]="hasTableCheckbox"
               [hasActionItems]="true"
               [tableStructure]="tableStructureForView"
               [tableData]="projectData"
-              (selectedRow)="onSelectedRowChane($event)">
-            </app-prime-ng>
+              (selectedRow)="onSelectedRowChane($event)"></app-prime-ng>
 
           </mat-tab>
-          <mat-tab label="Third">
+          <mat-tab label="Kendo">
 
             <!-- POc poc-kendo.component -->
             <!--    AG grid-->
-            <div class="table-title">Project Management - Kendo</div>
-            <div>
+            <div class="table-title">Project Management - Kendo <span>
               <a href="https://www.telerik.com/kendo-angular-ui/components/grid/"
-                target="_blank">Demo</a>
+                target="_blank">(Demo)</a>
+            </span>
             </div>
-                <poc-kendo></poc-kendo>
+            <poc-kendo></poc-kendo>
           </mat-tab>
         </mat-tab-group>
       </div>

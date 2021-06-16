@@ -20,7 +20,7 @@ import {AgGridDateFormatComponent} from '../components/ag-grid-date-format/ag-gr
 import {ShortDateWithTimePipe} from '../components/ag-grid-date-format/shortDateWithTime.pipe';
 import {PocKendoComponent} from '../components/poc-kendo/poc-kendo.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import {GridModule, SharedModule} from '@progress/kendo-angular-grid';
+import {BodyModule, GridModule, SharedModule} from '@progress/kendo-angular-grid';
 
 
 
@@ -50,6 +50,7 @@ import {GridModule, SharedModule} from '@progress/kendo-angular-grid';
     AgGridModule.withComponents([]),
     GridModule,
     SharedModule,
+    BodyModule,
 
   ],
   providers: [],

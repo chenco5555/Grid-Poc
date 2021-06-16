@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {IEntityData, IEntityDataWithActions, ITableStructure} from '../components/prime-ng/poc-prime-ng.component';
+import {IEntityDataWithActions, ITableStructure} from '../components/prime-ng/poc-prime-ng.component';
 import {AgGridStatusComponent} from '../components/ag-grid-status/ag-grid-status.component';
 import {AgGridActionsComponent} from '../components/ag-grid-actions.component/ag-grid-actions.component';
 import {AgGridDateFormatComponent} from '../components/ag-grid-date-format/ag-grid-date-format.component';
+import {TableDataService} from '../services/table-data-service';
 
 
 @Component({
@@ -23,12 +24,14 @@ export class AppComponent implements OnInit {
   hasTableCheckbox = true;
   public tableData: any;
   public projectData: IEntityDataWithActions[] = [];
-  public showTable = false;
-  public selectedRow: any;
+
+  constructor(private tableDataService: TableDataService) {}
 
 
   public ngOnInit() {
-
+    this.tableDataService.getCustomersLarge().then(res => {
+      this.tableData = res;
+    });
 
     this.tableStructure = [
       {
