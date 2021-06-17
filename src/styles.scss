@@ -144,6 +144,8 @@ body{
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
 
+// background: #EEF1F5;
+
 ag-grid-angular {
   width: 100%;
   height: 800px;
@@ -155,6 +157,10 @@ ag-grid-angular {
 
 .ag-icon-asc, .ag-icon-desc {
   color: red !important;
+}
+
+.ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-header-group-cell {
+ background-color: #EEF1F5;
 }
 
 
@@ -195,4 +201,8 @@ ag-grid-angular {
 .k-text-selection ::selection, .k-block ::selection, .k-panel ::selection, .k-pane-wrapper ::selection, .k-view ::selection, .k-progressbar ::selection, .k-numerictextbox ::selection, .k-flatcolorpicker ::selection, .k-combobox ::selection, .k-datepicker ::selection, .k-timepicker ::selection, .k-datetimepicker ::selection, .k-dateinput ::selection, .k-dropdown ::selection, .k-dropdowntree ::selection, .k-multiselect ::selection, .k-maskedtextbox ::selection, .k-rating ::selection, .k-window ::selection, .k-drawer ::selection, .k-notification ::selection, .k-breadcrumb ::selection, .k-pager-wrap ::selection, .k-panelbar ::selection, .k-card ::selection, .k-splitter ::selection, .k-spreadsheet ::selection, .k-taskboard ::selection, .k-scheduler ::selection, .k-chat ::selection, .k-mediaplayer ::selection, .k-pdf-viewer ::selection, kendo-scrollview.k-scrollview-wrap ::selection, kendo-scrollview.k-scrollview ::selection, div.k-scrollview ::selection, .k-chart ::selection, .k-sparkline ::selection, .k-stockchart ::selection {
   color: #424242;
   background-color: #fafafa;
+}
+
+.k-grid-header .k-with-icon, .k-grid-header .k-filterable {
+  background-color: #EEF1F5;
 }

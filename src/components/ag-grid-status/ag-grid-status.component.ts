@@ -20,8 +20,8 @@ export class AgGridStatusComponent implements AgRendererComponent {
 
 
   agInit(params: ICellRendererParams): void {
-    this.displayValue = params.value;
-    this.displayColor = this.convertProjectStatusToColor( this.displayValue);
+    this.displayValue = AgGridStatusComponent.translatProjectStatus(params.value);
+    this.displayColor = AgGridStatusComponent.convertProjectStatusToColor(params.value);
   }
 
   afterGuiAttached(params?: IAfterGuiAttachedParams): void {
@@ -32,7 +32,7 @@ export class AgGridStatusComponent implements AgRendererComponent {
     return false;
   }
 
-  public  convertProjectStatusToColor(projectStatus: string): Color | null {
+  private static convertProjectStatusToColor(projectStatus: string): Color | null {
     switch (projectStatus) {
       case 'IN_REVIEW':
         return Color.mainPurple;
@@ -50,6 +50,27 @@ export class AgGridStatusComponent implements AgRendererComponent {
         return Color.brand;
       default:
         return null;
+    }
+  }
+
+  private static translatProjectStatus(projectStatus: string): string {
+    switch (projectStatus) {
+      case 'IN_REVIEW':
+        return 'In review';
+      case 'SUBMITTED':
+        return 'Submitted';
+      case 'IN_PROGRESS':
+        return 'In Progress';
+      case 'APPROVED':
+        return 'Approved';
+      case 'REJECTED':
+        return 'Rejected';
+      case 'NEW':
+        return 'New';
+      case 'DRAFT':
+        return 'Draft';
+      default:
+        return '';
     }
   }
 
