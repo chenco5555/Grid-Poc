@@ -86,7 +86,7 @@ export class PocAgGridComponent implements OnInit, OnChanges {
   }
 
   public onCellClicked($event: any) {
-    alert('open editor');
+    console.log('open editor');
   }
 
   getRowData() {
@@ -184,7 +184,19 @@ function createNewRowData() {
     },
     activeForMe: true,
     deleted: false,
-    uuid: null
+    uuid: null,
+    actions: [{
+      title: ActionItemEnum.EDIT,
+      disabled: false,
+      tooltip: '34656',
+      iconCallback: () => {}
+    },
+      {
+        title: ActionItemEnum.DELETE,
+        disabled: false,
+        tooltip: '34656',
+        iconCallback: () => {}
+      }]
   };
   newCount++;
   return newData;

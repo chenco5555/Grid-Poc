@@ -178,8 +178,8 @@ export class AppComponent implements OnInit {
         pinned: 'left',
         headerCheckboxSelection: true,
       },
-      {field: 'name', headerName: 'Name', sortable: true, filter: true, resizable: true, width: 400, editable: false},
-      {field: 'typeId', headerName: 'Type', sortable: true, filter: true, resizable: true, editable: false},
+      {field: 'name', headerName: 'Name', sortable: true, filter: true, resizable: true, width: 400, editable: true},
+      {field: 'typeId', headerName: 'Type', sortable: true, filter: true, resizable: true, editable: true},
       {
         field: 'createDate',
         headerName: 'Create Date',
@@ -198,6 +198,23 @@ export class AppComponent implements OnInit {
         editable: false,
         cellRendererFramework: AgGridDateFormatComponent
       },
+      {field: 'systemType', headerName: 'system Type', sortable: true, filter: true, resizable: true, editable: true},
+      {
+        field: 'activeForMe',
+        headerName: 'activeForMe',
+        sortable: true,
+        filter: true,
+        resizable: true,
+        editable: false,
+      },
+      {
+        field: 'deleted',
+        headerName: 'deleted',
+        sortable: true,
+        filter: true,
+        resizable: true,
+        editable: false,
+      },
       {
         field: 'actions',
         headerName: 'actions',
@@ -207,7 +224,9 @@ export class AppComponent implements OnInit {
         editable: false,
         cellRendererFramework: AgGridActionsComponent,
         pinned: 'right'
-      }
+      },
+
+
     ];
   }
 
