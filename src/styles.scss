@@ -173,6 +173,26 @@ ag-grid-angular {
 }
 
 .k-columnmenu-item.k-state-selected {
-  color: #121032;
-  background-color: #e9ecef;
+  color: #424242;
+  background-color: #fafafa;
+}
+
+.k-pager-numbers .k-link.k-state-selected {
+  color: #424242;
+  background-color: #fafafa;
+}
+
+.k-pager-numbers .k-link {
+  color: #424242;
+}
+
+.k-button-primary, .k-button.k-primary {
+  color: #424242;
+  background-color: #d25a2b;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.04));
+}
+
+.k-text-selection ::selection, .k-block ::selection, .k-panel ::selection, .k-pane-wrapper ::selection, .k-view ::selection, .k-progressbar ::selection, .k-numerictextbox ::selection, .k-flatcolorpicker ::selection, .k-combobox ::selection, .k-datepicker ::selection, .k-timepicker ::selection, .k-datetimepicker ::selection, .k-dateinput ::selection, .k-dropdown ::selection, .k-dropdowntree ::selection, .k-multiselect ::selection, .k-maskedtextbox ::selection, .k-rating ::selection, .k-window ::selection, .k-drawer ::selection, .k-notification ::selection, .k-breadcrumb ::selection, .k-pager-wrap ::selection, .k-panelbar ::selection, .k-card ::selection, .k-splitter ::selection, .k-spreadsheet ::selection, .k-taskboard ::selection, .k-scheduler ::selection, .k-chat ::selection, .k-mediaplayer ::selection, .k-pdf-viewer ::selection, kendo-scrollview.k-scrollview-wrap ::selection, kendo-scrollview.k-scrollview ::selection, div.k-scrollview ::selection, .k-chart ::selection, .k-sparkline ::selection, .k-stockchart ::selection {
+  color: #424242;
+  background-color: #fafafa;
 }

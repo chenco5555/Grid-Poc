@@ -12,7 +12,8 @@
             </span>
             </div>
             <div class="table-options">
-              <p-multiSelect [virtualScroll]="true"
+              <p-multiSelect
+                [virtualScroll]="true"
                 [itemSize]="30"
                 [options]="columnOptions"
                 [(ngModel)]="selectedColumn"
@@ -38,11 +39,7 @@
                 (onChange)="onSelectedColumnChangePrimeNg($event)"></p-multiSelect>
 
               <div class="title-buttons">
-                <button pButton
-                  pRipple
-                  icon="pi pi-pencil"
-                  class="p-button-rounded p-button-success p-mr-2 button-for-editing table-checkbox-button"
-                  (click)="hasTableCheckbox = !hasTableCheckbox"></button>
+                <button (click)="hasTableCheckbox = !hasTableCheckbox">Add Row selection</button>
               </div>
             </div>
 

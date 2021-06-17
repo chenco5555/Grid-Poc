@@ -1,6 +1,23 @@
+<div class="button-wrapper">
+  <div>
+    <button (click)="onAddRow()">Add Row</button>
+    <button (click)="onInsertRowAt2()">Insert Row @ 2</button>
+    <button (click)="updateItems()">Update First 5</button>
+    <button (click)="onRemoveSelected()">Remove Selected</button>
+    <button (click)="getRowData()">Get Row Data</button>
+  </div>
+  <div style="margin-top: 4px;">
+    <button (click)="clearData()">Clear Data</button>
+    <button (click)="restoreData()">Restore Data</button>
+    <button (click)="addItems()">Add Items</button>
+    <button (click)="addItemsAtIndex()">Add Items @ 2</button>
+  </div>
+</div>
+
+
 <ag-grid-angular #agGrid
   [pagination]=true
-  class="ag-theme-alpine"
+  class="ag-theme-alpine ag-grid-item"
   [rowData]="tableData"
   [rowSelection]="'multiple'"
   [paginationPageSize]=50
@@ -10,5 +27,7 @@
   (gridReady)="onGridReady($event)"
   [columnDefs]="columnDefs">
 </ag-grid-angular>
+
+
 
 

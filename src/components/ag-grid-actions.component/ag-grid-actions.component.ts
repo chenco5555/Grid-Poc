@@ -21,7 +21,6 @@ export class AgGridActionsComponent implements AgRendererComponent {
 
   agInit(params: ICellRendererParams): void {
     this.selectedRow = params?.data;
-    console.log(this.selectedRow?.actions);
   }
 
   refresh(params: ICellRendererParams): boolean {

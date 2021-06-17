@@ -66,11 +66,6 @@ export class PocAgGridComponent implements OnInit, OnChanges {
     }
   }
 
-  onGridReady(params: {api: any; columnApi: any;}) {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-  }
-
   private editTableRow(item: any) {
     alert('edit selected row');
   }
@@ -91,7 +86,127 @@ export class PocAgGridComponent implements OnInit, OnChanges {
   }
 
   public onCellClicked($event: any) {
-    console.log('open editor');
+    alert('open editor');
   }
+
+  getRowData() {
+    let rowData: any[] = [];
+    this.gridApi?.forEachNode(function (node: {data: any;}) {
+      rowData.push(node.data);
+    });
+    console.log('Row Data:');
+    console.log(rowData);
+  }
+
+  clearData() {
+    this.gridApi?.setRowData([]);
+  }
+
+  restoreData(){
+    this.gridApi?.setRowData(this.tableData);
+  }
+
+  onAddRow() {
+    const newItem = createNewRowData();
+    const res = this.gridApi?.updateRowData({add: [newItem]});
+    printResult(res);
+  }
+
+  addItems() {
+    const newItems = [createNewRowData(), createNewRowData(), createNewRowData()];
+    const res = this.gridApi?.updateRowData({add: newItems});
+    printResult(res);
+  }
+
+  addItemsAtIndex() {
+    const newItems = [createNewRowData(), createNewRowData(), createNewRowData()];
+    const res = this.gridApi?.updateRowData({
+      add: newItems,
+      addIndex: 2
+    });
+    printResult(res);
+  }
+
+  updateItems() {
+    const itemsToUpdate: any[] = [];
+    this.gridApi?.forEachNodeAfterFilterAndSort(function (rowNode: {data: any;}, index: number) {
+      if (index >= 5) {
+        return;
+      }
+      const data = rowNode.data;
+      data.typeId = Math.floor(Math.random() * 10 + 10);
+      itemsToUpdate.push(data);
+    });
+    const res = this.gridApi?.updateRowData({update: itemsToUpdate});
+    printResult(res);
+  }
+
+  onInsertRowAt2() {
+    const newItem = createNewRowData();
+    const res = this.gridApi?.updateRowData({
+      add: [newItem],
+      addIndex: 2
+    });
+    printResult(res);
+  }
+
+  onRemoveSelected() {
+    const selectedData = this.gridApi?.getSelectedRows();
+    const res = this.gridApi?.updateRowData({remove: selectedData});
+    printResult(res);
+  }
+
+  onGridReady(params: {api: any; columnApi: any;}) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+  }
+}
+
+let newCount = 1;
+
+function createNewRowData() {
+  const newData =  {
+    id: 560,
+    name: "Proj 2",
+    typeId: 3,
+    status: "DRAFT",
+    customFields: {},
+    createDate: "2019-09-15T08:35:53Z",
+    lastUpdated: "2019-12-04T14:34:56Z",
+    systemType: null,
+    geometry: {
+      id: 23,
+      latitude: 32.2021617444,
+      longitude: 34.8844242096,
+      latitude84: 32.2021617444,
+      longitude84: 34.8844242096,
+      projectId: 2
+    },
+    activeForMe: true,
+    deleted: false,
+    uuid: null
+  };
+  newCount++;
+  return newData;
+}
+
+function printResult(res: {add: any[]; remove: any[]; update: any[];}) {
+  console.log('---------------------------------------');
+  if (res.add) {
+    res.add.forEach(function (rowNode) {
+      console.log('Added Row Node', rowNode);
+    });
+  }
+  if (res.remove) {
+    res.remove.forEach(function (rowNode) {
+      console.log('Removed Row Node', rowNode);
+    });
+  }
+  if (res.update) {
+    res.update.forEach(function (rowNode) {
+      console.log('Updated Row Node', rowNode);
+    });
+  }
+
 
 }
