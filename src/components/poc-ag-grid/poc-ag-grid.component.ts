@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {AgGridAngular} from 'ag-grid-angular';
-import {PaginationChangedEvent} from 'ag-grid-community';
+import {GridOptions, PaginationChangedEvent} from 'ag-grid-community';
 import {TableDataService} from '../../services/table-data-service';
 import {ActionItemEnum} from '../prime-ng/poc-prime-ng.component';
 
@@ -19,6 +19,9 @@ export class PocAgGridComponent implements OnInit, OnChanges {
   @ViewChild('agGrid') public agGrid: AgGridAngular|undefined;
   @Input() public tableData: any[] = [];
   @Input() public columnDefs: any[] = [];
+  public gridOptions: GridOptions = {};
+
+
 
   constructor(private tableDataService: TableDataService) {
   }
@@ -26,7 +29,33 @@ export class PocAgGridComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.rebuildTableData();
 
+    // see: https://www.ag-grid.com/javascript-grid/grid-properties/
+
+    this.gridOptions = {
+      defaultColDef: {
+        editable: (event: any) => {
+          return true
+        },
+        filter: true
+      },
+      singleClickEdit: true,
+      stopEditingWhenGridLosesFocus: true,
+      paginationPageSize: 50,
+      editType: 'fullRow', // fullRow
+      onCellValueChanged: (event: any) => {
+        console.log(event);
+      },
+      onRowValueChanged: (event: any) => {
+        console.log(event);
+      },
+      onRowEditingStopped: (event: any) => {
+        console.log(event);
+      }
+    };
+
   }
+
+
 
   private rebuildTableData(){
     this.tableDataService.getCustomersLarge().then(data => {
@@ -89,7 +118,7 @@ export class PocAgGridComponent implements OnInit, OnChanges {
     console.log('open editor');
   }
 
-  getRowData() {
+  public getRowData() {
     let rowData: any[] = [];
     this.gridApi?.forEachNode(function (node: {data: any;}) {
       rowData.push(node.data);
@@ -98,27 +127,27 @@ export class PocAgGridComponent implements OnInit, OnChanges {
     console.log(rowData);
   }
 
-  clearData() {
+  public clearData() {
     this.gridApi?.setRowData([]);
   }
 
-  restoreData(){
+  public restoreData(){
     this.gridApi?.setRowData(this.tableData);
   }
 
-  onAddRow() {
+  public onAddRow() {
     const newItem = createNewRowData();
     const res = this.gridApi?.updateRowData({add: [newItem]});
     printResult(res);
   }
 
-  addItems() {
+  public addItems() {
     const newItems = [createNewRowData(), createNewRowData(), createNewRowData()];
     const res = this.gridApi?.updateRowData({add: newItems});
     printResult(res);
   }
 
-  addItemsAtIndex() {
+  public addItemsAtIndex() {
     const newItems = [createNewRowData(), createNewRowData(), createNewRowData()];
     const res = this.gridApi?.updateRowData({
       add: newItems,
@@ -127,7 +156,7 @@ export class PocAgGridComponent implements OnInit, OnChanges {
     printResult(res);
   }
 
-  updateItems() {
+  public updateItems() {
     const itemsToUpdate: any[] = [];
     this.gridApi?.forEachNodeAfterFilterAndSort(function (rowNode: {data: any;}, index: number) {
       if (index >= 5) {
@@ -141,7 +170,7 @@ export class PocAgGridComponent implements OnInit, OnChanges {
     printResult(res);
   }
 
-  onInsertRowAt2() {
+  public onInsertRowAt2() {
     const newItem = createNewRowData();
     const res = this.gridApi?.updateRowData({
       add: [newItem],
@@ -150,16 +179,40 @@ export class PocAgGridComponent implements OnInit, OnChanges {
     printResult(res);
   }
 
-  onRemoveSelected() {
+  public onRemoveSelected() {
     const selectedData = this.gridApi?.getSelectedRows();
     const res = this.gridApi?.updateRowData({remove: selectedData});
     printResult(res);
   }
 
-  onGridReady(params: {api: any; columnApi: any;}) {
+  public onGridReady(params: {api: any; columnApi: any;}) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
   }
+
+  public onBtStopEditing() {
+    this.gridApi.stopEditing(true);
+  }
+
+  public onBtNextCell() {
+   this.gridApi?.tabToNextCell();
+  }
+
+  public onBtPreviousCell() {
+    this.gridApi?.tabToPreviousCell();
+  }
+
+  // public onBtStartEditing(key: any, char: any, pinned: any) {
+  //   this.gridOptions.api.setFocusedCell(0, 'lastName', pinned);
+  //   this.gridOptions.api.startEditingCell({
+  //     rowIndex: 0,
+  //     colKey: 'lastName',
+  //     // set to 'top', 'bottom' or undefined
+  //     rowPinned: pinned,
+  //     keyPress: key,
+  //     charPress: char,
+  //   });
+  // }
 }
 
 let newCount = 1;

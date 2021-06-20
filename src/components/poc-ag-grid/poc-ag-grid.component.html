@@ -21,6 +21,7 @@
   [rowData]="tableData"
   [rowSelection]="'multiple'"
   [paginationPageSize]=50
+  [gridOptions]="gridOptions"
   (rowSelected)="getSelectedRows()"
   (cellDoubleClicked)="onCellClicked($event)"
   (paginationChanged)="onPaginationChanged($event)"
