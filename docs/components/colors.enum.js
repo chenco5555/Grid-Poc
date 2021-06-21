@@ -1,0 +1,33 @@
+export var Color;
+(function (Color) {
+    Color["mainGreen"] = "#32B374";
+    Color["mainYellow"] = "#F7C72E";
+    Color["mainRed"] = "#D0021B";
+    Color["mainBrandDark"] = "#C4532C";
+    Color["mainBrandLife"] = "#E0602E";
+    Color["mainBlack"] = "#121032";
+    Color["mainGrayMild"] = "#7b7b7b";
+    Color["mainPurple"] = "#8390b7";
+    Color["white"] = "#FFFFFF";
+    Color["mainWhite"] = "#FBFBFB";
+    Color["mainBackground"] = "#FBFBFB";
+    Color["mainGrayDark"] = "#575757";
+    Color["mainGrayMedium"] = "#666666";
+    Color["mainGrayLight"] = "#A9A9A9";
+    Color["mainGrayXLight"] = "#EDECED";
+    Color["mainPurpleLight"] = "#DBE2EE";
+    Color["mainPurpleXLight"] = "#eef1f5";
+    Color["grayDarkDisabled"] = "#acb8dc";
+    Color["orangeEnabled"] = "#ff8614";
+    Color["mainNew"] = "#74b3ce";
+    Color["mainAsset"] = "#7f7caf";
+    Color["mainAssetService"] = "#acb8dc";
+    Color["pagerOrange"] = "#d25a2b";
+    Color["brand"] = "#2a2977";
+    Color["mainGray"] = "#757575";
+    Color["alertOrange"] = "#df663d";
+    Color["alertYellow"] = "#f9a600";
+    Color["existingGisDisabled"] = "#809FC6";
+    Color["existingGisWhite"] = "#E9E9EE";
+})(Color || (Color = {}));
+//# sourceMappingURL=colors.enum.js.map
