@@ -20,7 +20,7 @@
     [(first)]="first"
     [resizableColumns]="false"
     (sortFunction)="customSort($event)"
-    selectionMode="single">
+    selectionMode="multiple">
 
 
     <ng-template pTemplate="header">
@@ -59,7 +59,7 @@
          (dblclick)="onRowSelect(tableRow)">
         <td *ngIf="hasTableCheckbox"
           class="table-checkbox-width ui-resizable-column">
-          <p-tableCheckbox [value]="tableData"></p-tableCheckbox>
+          <p-tableCheckbox [value]="tableRow"></p-tableCheckbox>
         </td>
 
 
