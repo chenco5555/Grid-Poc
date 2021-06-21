@@ -82,6 +82,8 @@ export class PocAgGridComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+
+
     if (changes.columnDefs) {
       /**
        * In ag-grid the columns in gridOptions are used once at grid initialisation.
